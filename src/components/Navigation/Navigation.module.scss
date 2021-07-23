@@ -1,0 +1,21 @@
+.navigation {
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin-right: 2.5rem;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
