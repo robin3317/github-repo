@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CustomButton from '../CustomButton/CustomButton';
 import FormInput from '../FormInput/FormInput';
 import styles from './Signin.module.scss';
 
@@ -53,6 +54,11 @@ const Signin = () => {
           required
           label="Password"
         />
+
+        <div className={styles.signinButtonContainer}>
+          <CustomButton type="submit">SIGN IN</CustomButton>
+          <CustomButton className="googleSigninButton">SIGN IN WITH GOOGLE</CustomButton>
+        </div>
       </form>
     </div>
   );

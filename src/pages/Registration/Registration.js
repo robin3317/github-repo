@@ -5,7 +5,7 @@ import styles from './Registration.module.scss';
 
 const RegistrationPage = () => (
   <BaseLayout>
-    <div className={styles}>
+    <div className={styles.registration}>
       <Signin />
       <Signup />
     </div>
