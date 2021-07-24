@@ -6,11 +6,15 @@ const ResultCard = ({ resultObj, ...props }) => {
   const {
     fullName,
     description,
+    starsCount,
     owner: { avatar_url, login, type, html_url },
   } = resultObj;
   return (
     <div className={styles.resultContainer} {...props}>
-      <h4>{fullName}</h4>
+      <h4>
+        {fullName} &nbsp; (<span style={{ fontSize: 18 }}>&#9734;</span>
+        {starsCount})
+      </h4>
 
       <p className={styles.description}>{description}</p>
 
