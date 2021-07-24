@@ -29,6 +29,14 @@ const reposReducer = (state = initialState, action) => {
         reposError: action.payload,
       };
 
+    case ReposActionTypes.SET_REPOS_DEFAULT_STATE:
+      return {
+        ...state,
+        reposLoading: false,
+        reposError: null,
+        allRepos: null,
+      };
+
     default:
       return state;
   }

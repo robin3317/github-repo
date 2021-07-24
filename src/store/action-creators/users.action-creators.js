@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase';
 import Alert from '../../tools/Alert/Alert';
+import ReposActionTypes from '../action-types/repos.action-types';
 import ActionTypes from '../action-types/users.action-types';
 
 export const createUser = (userData) => async (dispatch) => {
@@ -89,8 +90,13 @@ export const signOutUser = () => async (dispatch) => {
 
   try {
     await auth.signOut();
+
     dispatch({
       type: ActionTypes.SIGN_OUT_SUCCESS,
+    });
+
+    dispatch({
+      type: ReposActionTypes.SET_REPOS_DEFAULT_STATE,
     });
   } catch (error) {
     dispatch({
