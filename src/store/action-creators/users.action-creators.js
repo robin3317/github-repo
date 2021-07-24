@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { auth, createUserProfileDocument } from '../../firebase/firebase';
+import { auth, createUserProfileDocument, signInWithGoogle } from '../../firebase/firebase';
 import Alert from '../../tools/Alert/Alert';
 import ActionTypes from '../action-types/users.action-types';
 
@@ -32,6 +32,52 @@ export const createUser = (userData) => async (dispatch) => {
   }
 };
 
-// export const signinUser = (userData) => async (dispatch) => {
-//   // ...
-// };
+export const signInUser =
+  ({ email, password, isGoogleSignIn }) =>
+  async (dispatch) => {
+    if (isGoogleSignIn) {
+      dispatch({
+        type: ActionTypes.GOOGLE_SIGNIN_START,
+      });
+
+      try {
+        const { user } = await signInWithGoogle();
+
+        dispatch({
+          type: ActionTypes.SIGNIN_SUCCESS,
+          payload: {
+            user,
+          },
+        });
+      } catch (error) {
+        dispatch({
+          type: ActionTypes.SIGNIN_FAILURE,
+          payload: error.message,
+        });
+        Alert({ type: 'error', message: error.message });
+      }
+
+      // if email and password signin
+    } else {
+      dispatch({
+        type: ActionTypes.EMAIL_SIGNIN_START,
+      });
+
+      try {
+        const { user } = await auth.signInWithEmailAndPassword(email, password);
+
+        dispatch({
+          type: ActionTypes.SIGNIN_SUCCESS,
+          payload: {
+            user,
+          },
+        });
+      } catch (error) {
+        dispatch({
+          type: ActionTypes.SIGNIN_FAILURE,
+          payload: error.message,
+        });
+        Alert({ type: 'error', message: error.message });
+      }
+    }
+  };

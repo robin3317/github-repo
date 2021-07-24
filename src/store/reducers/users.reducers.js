@@ -2,8 +2,8 @@ import UserActionTypes from '../action-types/users.action-types';
 
 const initialState = {
   currentUser: null,
-  createUserError: null,
-  createUserLoading: false,
+  authUserError: null,
+  authUserLoading: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -11,21 +11,49 @@ const userReducer = (state = initialState, action) => {
     case UserActionTypes.SIGN_UP_START:
       return {
         ...state,
-        createUserLoading: true,
+        authUserLoading: true,
       };
 
     case UserActionTypes.SIGN_UP_SUCCESS:
       return {
         ...state,
-        createUserLoading: false,
+        authUserLoading: false,
+        authUserError: null,
         currentUser: action.payload,
       };
 
     case UserActionTypes.SIGN_UP_FAILURE:
       return {
         ...state,
-        createUserLoading: false,
-        createUserError: action.payload,
+        authUserLoading: false,
+        authUserError: action.payload,
+      };
+
+    case UserActionTypes.GOOGLE_SIGNIN_START:
+      return {
+        ...state,
+        authUserLoading: true,
+      };
+
+    case UserActionTypes.EMAIL_SIGNIN_START:
+      return {
+        ...state,
+        authUserLoading: true,
+      };
+
+    case UserActionTypes.SIGNIN_SUCCESS:
+      return {
+        ...state,
+        authUserLoading: false,
+        authUserError: null,
+        currentUser: action.payload,
+      };
+
+    case UserActionTypes.SIGNIN_FAILURE:
+      return {
+        ...state,
+        authUserLoading: false,
+        authUserError: action.payload,
       };
 
     default:

@@ -4,8 +4,8 @@
 import PropTypes from 'prop-types';
 import styles from './CustomButton.module.scss';
 
-const CustomButton = ({ children, type = 'button', className }) => (
-  <button className={`${styles.button} ${className && styles[className]}`} type={type}>
+const CustomButton = ({ children, type = 'button', className, ...props }) => (
+  <button className={`${styles.button} ${className && styles[className]}`} {...props} type={type}>
     {children}
   </button>
 );

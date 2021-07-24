@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
+import Alert from '../tools/Alert/Alert';
 
 /* 
 Eventually this project will be deleted, so for simplicity I expose 
@@ -43,7 +44,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     try {
       await userRef.set({ username, email, createAt, ...additionalData });
     } catch (error) {
-      console.warn('error creating user: ', error.message);
+      Alert({ type: 'error', message: error.message });
     }
   }
 

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInUser } from '../../store/action-creators/users.action-creators';
 import CustomButton from '../CustomButton/CustomButton';
 import FormInput from '../FormInput/FormInput';
 import styles from './Signin.module.scss';
@@ -7,11 +9,22 @@ const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const dispatch = useDispatch();
+  const { currentUser, createUserLoading, createUserError } = useSelector((state) => state.user);
+
+  console.log(`
+    currentUser: ${currentUser},
+    cureateUserLoading: ${createUserLoading},
+    createUserError: ${createUserError}
+  `);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // await auth.signInWithEmailAndPassword(email, password);
-    setEmail('');
-    setPassword('');
+    dispatch(signInUser({ email, password, isGoogleSignIn: false }));
+  };
+
+  const handleGoogleSignIn = () => {
+    dispatch(signInUser({ isGoogleSignIn: true }));
   };
 
   const handleChange = (event) => {
@@ -57,7 +70,7 @@ const Signin = () => {
 
         <div className={styles.signinButtonContainer}>
           <CustomButton type="submit">SIGN IN</CustomButton>
-          <CustomButton type="button" className="googleSigninButton">
+          <CustomButton type="button" className="googleSigninButton" onClick={handleGoogleSignIn}>
             SIGN IN WITH GOOGLE
           </CustomButton>
         </div>
