@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { createUser } from '../../store/action-creators/users.action-creators';
+import Alert from '../../tools/Alert/Alert';
 import CustomButton from '../CustomButton/CustomButton';
 import FormInput from '../FormInput/FormInput';
 import styles from './Signup.module.scss';
@@ -11,31 +14,26 @@ const Signup = () => {
     confirmPassword: '',
   });
 
+  const dispatch = useDispatch();
+  const { currentUser, createUserLoading, createUserError } = useSelector((state) => state.user);
+
+  console.log(`
+    currentUser: ${currentUser},
+    cureateUserLoading: ${createUserLoading},
+    createUserError: ${createUserError}
+  `);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const { password, confirmPassword } = credentials;
 
     if (password !== confirmPassword) {
-      alert("passwords don't match");
+      Alert({ type: 'warning', message: 'Password not match!' });
       return;
     }
 
-    try {
-      // const { user } = await auth.createUserWithEmailAndPassword(
-      //   email,
-      //   password
-      // );
-      // await createUserProfileDocument(user, { displayName });
-      // this.setState({
-      //   displayName: '',
-      //   email: '',
-      //   password: '',
-      //   confirmPassword: '',
-      // });
-    } catch (error) {
-      console.error(error);
-    }
+    dispatch(createUser(credentials));
   };
 
   const handleChange = (event) => {
@@ -62,7 +60,7 @@ const Signup = () => {
           handleChange={handleChange}
           required
           label="Username"
-          id="username"
+          id="signUpUsername"
         />
 
         <FormInput
@@ -72,7 +70,7 @@ const Signup = () => {
           handleChange={handleChange}
           required
           label="Email"
-          id="email"
+          id="signUpEmail"
         />
 
         <FormInput
@@ -82,7 +80,7 @@ const Signup = () => {
           handleChange={handleChange}
           required
           label="Password"
-          id="password"
+          id="signUpPassword"
         />
 
         <FormInput
@@ -92,7 +90,7 @@ const Signup = () => {
           handleChange={handleChange}
           required
           label="Confirm Password"
-          id="confirmPassword"
+          id="signUpconfirmPassword"
         />
 
         <CustomButton type="submit">SIGN UP</CustomButton>

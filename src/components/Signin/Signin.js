@@ -37,7 +37,7 @@ const Signin = () => {
       <form onSubmit={handleSubmit}>
         <FormInput
           type="email"
-          id="email"
+          id="signInEmail"
           name="email"
           value={email}
           handleChange={handleChange}
@@ -47,7 +47,7 @@ const Signin = () => {
 
         <FormInput
           type="password"
-          id="password"
+          id="signInPassword"
           name="password"
           value={password}
           handleChange={handleChange}
@@ -57,7 +57,9 @@ const Signin = () => {
 
         <div className={styles.signinButtonContainer}>
           <CustomButton type="submit">SIGN IN</CustomButton>
-          <CustomButton className="googleSigninButton">SIGN IN WITH GOOGLE</CustomButton>
+          <CustomButton type="button" className="googleSigninButton">
+            SIGN IN WITH GOOGLE
+          </CustomButton>
         </div>
       </form>
     </div>
