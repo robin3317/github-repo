@@ -12,7 +12,7 @@ const CustomButton = ({ children, type = 'button', className, ...props }) => (
 
 CustomButton.propTypes = {
   children: PropTypes.node,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   className: PropTypes.string,
 };
 

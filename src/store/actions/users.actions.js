@@ -6,9 +6,8 @@ export const setCurrentUser = (user) => ({
 });
 
 // start signup
-export const signUpStart = (userCredentials) => ({
+export const signUpStart = () => ({
   type: UserActionTypes.SIGN_UP_START,
-  payload: userCredentials,
 });
 
 export const signUpSuccess = ({ user, additionalData }) => ({
