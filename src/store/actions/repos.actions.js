@@ -13,3 +13,7 @@ export const fetchingReposError = (error) => ({
   type: ReposActionTypes.FETCHING_REPOS_FAILURE,
   payload: error,
 });
+
+export const setReposDefaultState = () => ({
+  type: ReposActionTypes.SET_REPOS_DEFAULT_STATE,
+});
