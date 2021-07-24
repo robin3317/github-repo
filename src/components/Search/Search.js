@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRepos } from '../../store/action-creators/repos.action-creators';
+import Alert from '../../tools/Alert/Alert';
 import CustomButton from '../CustomButton/CustomButton';
 import styles from './Search.module.scss';
 
@@ -13,6 +14,14 @@ const Search = () => {
   };
 
   const onSearchHandler = () => {
+    if (query === '' || !query) {
+      Alert({
+        type: 'warning',
+        message: 'Empty field search! Please write any topic or language.',
+      });
+      return;
+    }
+
     dispatch(fetchRepos({ query }));
   };
 

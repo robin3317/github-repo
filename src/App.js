@@ -24,7 +24,7 @@ const App = () => {
         path="/"
         render={() => (currentUser ? <Redirect to="/home" /> : <RegistrationPage />)}
       />
-      <Route exact path="/home" render={() => (currentUser ? <HomePage /> : <Redirect to="/" />)} />
+      <Route exact path="/home" component={HomePage} />
     </Switch>
   );
 };
