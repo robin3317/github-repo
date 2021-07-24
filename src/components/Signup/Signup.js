@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createUser } from '../../store/action-creators/users.action-creators';
 import Alert from '../../tools/Alert/Alert';
 import CustomButton from '../CustomButton/CustomButton';
@@ -15,13 +15,13 @@ const Signup = () => {
   });
 
   const dispatch = useDispatch();
-  const { currentUser, createUserLoading, createUserError } = useSelector((state) => state.user);
+  // const { currentUser, authUserLoading, authUserError } = useSelector((state) => state.user);
 
-  console.log(`
-    currentUser: ${currentUser},
-    cureateUserLoading: ${createUserLoading},
-    createUserError: ${createUserError}
-  `);
+  // console.log(`
+  //   currentUser: ${currentUser},
+  //   cureateUserLoading: ${authUserLoading},
+  //   createUserError: ${authUserError}
+  // `);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

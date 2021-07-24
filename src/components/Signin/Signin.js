@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signInUser } from '../../store/action-creators/users.action-creators';
 import CustomButton from '../CustomButton/CustomButton';
 import FormInput from '../FormInput/FormInput';
@@ -10,13 +10,13 @@ const Signin = () => {
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
-  const { currentUser, createUserLoading, createUserError } = useSelector((state) => state.user);
+  // const { currentUser, authUserLoading, authUserError } = useSelector((state) => state.user);
 
-  console.log(`
-    currentUser: ${currentUser},
-    cureateUserLoading: ${createUserLoading},
-    createUserError: ${createUserError}
-  `);
+  // console.log(`
+  //   currentUser: ${currentUser},
+  //   cureateUserLoading: ${authUserLoading},
+  //   createUserError: ${authUserError}
+  // `);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

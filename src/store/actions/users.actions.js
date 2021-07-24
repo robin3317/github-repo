@@ -5,7 +5,7 @@ export const setCurrentUser = (user) => ({
   payload: user,
 });
 
-/* ----- start signup ------- */
+// start signup
 export const signUpStart = (userCredentials) => ({
   type: UserActionTypes.SIGN_UP_START,
   payload: userCredentials,
@@ -20,9 +20,9 @@ export const signUpFailure = (error) => ({
   type: UserActionTypes.SIGN_UP_FAILURE,
   payload: error,
 });
-/* ------ end signup --------- */
+// end signup
 
-/* ------ start signin -------- */
+// start signin
 export const googleSignInStart = () => ({
   type: UserActionTypes.GOOGLE_SIGNIN_START,
 });
@@ -41,4 +41,19 @@ export const signInFailure = (error) => ({
   type: UserActionTypes.SIGN_IN_FAILURE,
   payload: error,
 });
-/* -------- end signin -------- */
+// end signin
+
+// start signout
+export const signOutStart = () => ({
+  type: UserActionTypes.SIGN_OUT_START,
+});
+
+export const signOutSuccess = () => ({
+  type: UserActionTypes.SIGN_OUT_SUCCESS,
+});
+
+export const signOutFailure = (error) => ({
+  type: UserActionTypes.SIGN_OUT_FAILURE,
+  payload: error,
+});
+// end signout

@@ -8,6 +8,12 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    case UserActionTypes.SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: action.payload,
+      };
+
     case UserActionTypes.SIGN_UP_START:
       return {
         ...state,
@@ -50,6 +56,27 @@ const userReducer = (state = initialState, action) => {
       };
 
     case UserActionTypes.SIGNIN_FAILURE:
+      return {
+        ...state,
+        authUserLoading: false,
+        authUserError: action.payload,
+      };
+
+    case UserActionTypes.SIGN_OUT_START:
+      return {
+        ...state,
+        authUserLoading: true,
+      };
+
+    case UserActionTypes.SIGN_OUT_SUCCESS:
+      return {
+        ...state,
+        authUserLoading: false,
+        authUserError: null,
+        currentUser: null,
+      };
+
+    case UserActionTypes.SIGN_OUT_FAILURE:
       return {
         ...state,
         authUserLoading: false,

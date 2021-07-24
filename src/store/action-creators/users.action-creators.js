@@ -81,3 +81,26 @@ export const signInUser =
       }
     }
   };
+
+export const signOutUser = () => async (dispatch) => {
+  dispatch({
+    type: ActionTypes.SIGN_OUT_START,
+  });
+
+  try {
+    await auth.signOut();
+    dispatch({
+      type: ActionTypes.SIGN_OUT_SUCCESS,
+    });
+  } catch (error) {
+    dispatch({
+      type: ActionTypes.SIGN_UP_FAILURE,
+      payload: error.message,
+    });
+
+    Alert({
+      type: 'error',
+      message: error.message,
+    });
+  }
+};
