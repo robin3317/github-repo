@@ -1,8 +1,14 @@
 import BaseLayout from '../../components/BaseLayout/BaseLayout';
+import Result from '../../components/Result/Result';
+import Search from '../../components/Search/Search';
+import styles from './Home.module.scss';
 
 const HomePage = () => (
   <BaseLayout>
-    <h3>Home page</h3>
+    <div className={styles.homeContainer}>
+      <Search />
+      <Result />
+    </div>
   </BaseLayout>
 );
 
