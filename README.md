@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 ## User Credentials for Testing
 
 - email: test@gmail.com
-- password: test1235
+- password: test123
 
 > I appreciate to create your own profile
 
