@@ -2,6 +2,10 @@
   display: flex;
   margin-bottom: 3rem;
 
+  .form {
+    display: flex;
+  }
+
   .searchInput {
     padding: 1rem;
     min-width: 30rem;

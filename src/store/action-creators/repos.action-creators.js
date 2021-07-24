@@ -10,7 +10,7 @@ export const fetchRepos = (queryParams) => async (dispatch) => {
 
   try {
     const { query } = queryParams;
-    const githubEndpoint = `https://api.github.com/search/repositories?q=${query}&sort=stars`;
+    const githubEndpoint = `https://api.github.com/search/repositories?q=${query}&sort=stars&per_page=65`;
 
     const { data } = await axios.get(githubEndpoint);
     console.log(data);

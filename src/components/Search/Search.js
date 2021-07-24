@@ -13,7 +13,9 @@ const Search = () => {
     setQuery(event.target.value);
   };
 
-  const onSearchHandler = () => {
+  const onSearchHandler = (event) => {
+    event.preventDefault();
+
     if (query === '' || !query) {
       Alert({
         type: 'warning',
@@ -27,13 +29,17 @@ const Search = () => {
 
   return (
     <div className={styles.searchContainer}>
-      <input
-        onChange={onChangeHandler}
-        className={styles.searchInput}
-        placeholder="Search by topic or language"
-        value={query}
-      />
-      <CustomButton onClick={onSearchHandler}>Search</CustomButton>
+      <form className={styles.form}>
+        <input
+          onChange={onChangeHandler}
+          className={styles.searchInput}
+          placeholder="Search by topic or language"
+          value={query}
+        />
+        <CustomButton type="submit" onClick={onSearchHandler}>
+          Search
+        </CustomButton>
+      </form>
     </div>
   );
 };
