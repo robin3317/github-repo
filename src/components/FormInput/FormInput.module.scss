@@ -1,0 +1,28 @@
+$sub-color: grey;
+$main-color: black;
+
+.inputContainer {
+  margin: 4.5rem 0;
+  position: relative;
+
+  input[type="password"] {
+    letter-spacing: 0.3em;
+  }
+
+  .input {
+    background: none;
+    background-color: #fff;
+    color: $sub-color;
+    padding: 1rem 1rem 1rem .5rem;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $sub-color;
+    margin: .5rem 0 2.5rem 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

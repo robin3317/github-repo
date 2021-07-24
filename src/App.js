@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { auth } from './firebase/firebase';
+import HomePage from './pages/Home/Home';
+import RegistrationPage from './pages/Registration/Registration';
+import { setCurrentUser } from './store/actions/users.actions';
 
-function App() {
+const App = () => {
+  const [user] = useAuthState(auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCurrentUser(user));
+  }, [dispatch, user]);
+
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route
+        exact
+        path="/"
+        render={() => (currentUser ? <Redirect to="/home" /> : <RegistrationPage />)}
+      />
+      <Route exact path="/home" render={() => (currentUser ? <HomePage /> : <Redirect to="/" />)} />
+    </Switch>
   );
-}
+};
 
 export default App;

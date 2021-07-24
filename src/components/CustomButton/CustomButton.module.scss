@@ -1,0 +1,34 @@
+.button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  min-width: 15rem;
+  width: auto;
+  height: 5rem;
+  letter-spacing: 0.5px;
+  line-height: 5rem;
+  padding: 0 3.5rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+  }
+}
+
+.googleSigninButton {
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    background-color: #357ae8;
+    color: #fff;
+    border: none;
+  }
+}

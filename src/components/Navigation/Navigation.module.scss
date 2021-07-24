@@ -1,0 +1,28 @@
+.navigation {
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .brandName {
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-decoration: none;
+    margin-left: 2.5rem;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin-right: 2.5rem;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
