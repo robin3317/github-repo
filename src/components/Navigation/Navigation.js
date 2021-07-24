@@ -3,6 +3,9 @@ import styles from './Navigation.module.scss';
 
 const Navigation = () => (
   <nav className={styles.navigation}>
+    <Link to="/" className={styles.brandName}>
+      Github Repo
+    </Link>
     <ul>
       <li>
         <Link className={styles.link} to="/">
