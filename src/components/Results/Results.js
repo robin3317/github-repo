@@ -9,7 +9,7 @@ const Results = () => {
 
   return (
     <div className={styles.container}>
-      {allRepos && allRepos.total_count >= 0 && !reposLoading && !reposError && allRepos.items && (
+      {allRepos && allRepos.total_count > 0 && !reposLoading && !reposError && allRepos.items && (
         <CustomPagination data={allRepos} />
       )}
 
