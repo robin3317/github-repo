@@ -14,7 +14,7 @@ const Navigation = () => {
   return (
     <nav className={styles.navigation}>
       <Link to="/" className={styles.brandName}>
-        Github Repo
+        Github Finder
       </Link>
       <ul>
         <li>
