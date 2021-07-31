@@ -1,10 +1,12 @@
 # Github Finder
 
-A application to find Github related things like as repositories, users e.t.c by using beautiful github api. This application is built with the following technologies:
+An application to find Github related things like as repositories, users e.t.c by using beautiful github api. This application is built with the following technologies:
 
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 - [Firebase](https://firebase.google.com/)
+
+This application is live [https://github-repo-v1.netlify.app/](https://github-repo-v1.netlify.app/)
 
 ### Application Features
 
@@ -19,11 +21,11 @@ A application to find Github related things like as repositories, users e.t.c by
 
 ### Registration Page
 
-![Registration Page](./docs/registration-page.png)
+![Registration Page](./docs/registration-page.PNG)
 
 ### Repositories Search Page
 
-![Repositories Search Page](./docs/repo-search-page.png)
+![Repositories Search Page](./docs/repo-search-page.PNG)
 
 # Getting Started with Github Finder
 
